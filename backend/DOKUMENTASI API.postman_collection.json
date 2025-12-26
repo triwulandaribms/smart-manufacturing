@@ -1,0 +1,1218 @@
+{
+	"info": {
+		"_postman_id": "b670d984-99ec-426b-bde6-b131c997eb6b",
+		"name": "DOKUMENTASI API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31105927"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "tambah user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjc1MjEsImV4cCI6MTc2NjgxMzkyMX0.8P5-o9Jxb2uCFM3Vhr4clGWr9qmkdtOSigYkKF1AGtU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Operator 1\",\r\n  \"email\": \"operator1@mail.com\",\r\n  \"password\": \"operator1\",\r\n  \"role\": \"operator\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "jika belum ada token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Operator 1\",\r\n  \"email\": \"operator1@mail.com\",\r\n  \"password\": \"operator1\",\r\n  \"role\": \"operator\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/users/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"add"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-Nh7BgMCSHBmH370xGUe3w3S0C0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:37:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mohon masukkan token.\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Operator 1\",\r\n  \"email\": \"operator1@mail.com\",\r\n  \"password\": \"operator1\",\r\n  \"role\": \"operator\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/users/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "117"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"75-hRtaLvEj+Ty/i8/3zeOViEZTkL4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:42:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User berhasil dibuat\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Operator 1\",\n        \"email\": \"operator1@mail.com\",\n        \"role\": \"operator\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"triwulandari@mail.com\",\r\n  \"password\": \"wulan123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"triwulandari@mail.com\",\r\n  \"password\": \"wulan123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e3-5iScQnkbNQMp42fGBXZCoY+2TIs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:38:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login berhasil\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjc1MjEsImV4cCI6MTc2NjgxMzkyMX0.8P5-o9Jxb2uCFM3Vhr4clGWr9qmkdtOSigYkKF1AGtU\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3MjgxOTIsImV4cCI6MTc2NjgxNDU5Mn0.JH3IXXRQeEwJzx_IHsE0MJMVMpFgZZlKhEm11INgvN4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error belum ada token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"get-all"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-Nh7BgMCSHBmH370xGUe3w3S0C0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:48:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mohon masukkan token.\"\n}"
+						},
+						{
+							"name": "jika operator yang akses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"get-all"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-oBhFsZQGIv32an/Twwhr4oYVFcE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:49:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Operator tidak memiliki akses ke resource ini.\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "202"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ca-MsKQz+savIulKM9t9a/9AWyuZmk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 05:50:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Berhasil ambil data user\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Tri Wulandari\",\n            \"email\": \"triwulandari@mail.com\",\n            \"role\": \"admin\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Operator 1\",\n            \"email\": \"operator1@mail.com\",\n            \"role\": \"operator\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "machine",
+			"item": [
+				{
+					"name": "add machine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjg5NTIsImV4cCI6MTc2NjgxNTM1Mn0.iZttDCtwTibuL9_l_ySvvsWpwJcDtyjLNI4cxixluYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Press Machine 1\",\r\n  \"type\": \"Press\",\r\n  \"status\": \"Running\",\r\n  \"temperature\": 70\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/machines/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"machines",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "jika belum ada token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"CNC Machine 1\",\r\n  \"type\": \"CNC\",\r\n  \"status\": \"Running\",\r\n  \"temperature\": 75.5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/machines/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"machines",
+										"add"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-Nh7BgMCSHBmH370xGUe3w3S0C0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:01:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mohon masukkan token.\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"CNC Machine 1\",\r\n  \"type\": \"CNC\",\r\n  \"status\": \"Running\",\r\n  \"temperature\": 75.5\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/machines/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"machines",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "130"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"82-sb91WqfIdXQh3G0MKuGGDtnatT8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:01:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mesin berhasil ditambahkan\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"CNC Machine 1\",\n        \"type\": \"CNC\",\n        \"status\": \"Running\",\n        \"temperature\": 75.5\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjg5NTIsImV4cCI6MTc2NjgxNTM1Mn0.iZttDCtwTibuL9_l_ySvvsWpwJcDtyjLNI4cxixluYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/machines/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"machines",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "jika belum ada token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/machines/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"machines",
+										"get-all"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-Nh7BgMCSHBmH370xGUe3w3S0C0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:04:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mohon masukkan token.\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/machines/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"machines",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"da-/zrbs+iUfX3SXfQfp4aT9GGB8hk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:04:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Berhasil ambil data machine\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"CNC Machine 1\",\n            \"type\": \"CNC\",\n            \"status\": \"Running\",\n            \"temperature\": 75.5\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Press Machine 1\",\n            \"type\": \"Press\",\n            \"status\": \"Running\",\n            \"temperature\": 70\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjg5NTIsImV4cCI6MTc2NjgxNTM1Mn0.iZttDCtwTibuL9_l_ySvvsWpwJcDtyjLNI4cxixluYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"Maintenance\",\r\n  \"temperature\": 60\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/machines/update-by/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"machines",
+								"update-by",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"Maintenance\",\r\n  \"temperature\": 60\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/machines/update-by/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"machines",
+										"update-by",
+										"2"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-pO7xeZm0Q2EOB7w8GueAtZ8JtV4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:06:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Status mesin berhasil diupdate\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Press Machine 1\",\n        \"type\": \"Press\",\n        \"status\": \"Maintenance\",\n        \"temperature\": 60\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "production",
+			"item": [
+				{
+					"name": "add production",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjg5NTIsImV4cCI6MTc2NjgxNTM1Mn0.iZttDCtwTibuL9_l_ySvvsWpwJcDtyjLNI4cxixluYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"machine_id\": 1,\r\n  \"quantity\": 120,\r\n  \"shift\": \"Pagi\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/production/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"production",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "jika status mesin tidak bisa digunakan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"machine_id\": 2,\r\n  \"quantity\": 120,\r\n  \"shift\": \"Pagi\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/production/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"production",
+										"add"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-q9XyQogkaQrfVzVeH5UC21L3B74\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:37:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mesin tidak bisa digunakan karena status Maintenance\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"machine_id\": 1,\r\n  \"quantity\": 120,\r\n  \"shift\": \"Pagi\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/production/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"production",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116-mmWz2WRy+JQCxJKUmtTJbxiVgt4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:38:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data produksi berhasil dicatat\",\n    \"data\": {\n        \"id\": 1,\n        \"quantity\": 120,\n        \"shift\": \"Pagi\",\n        \"createdAt\": \"2025-12-26T06:38:25.007Z\",\n        \"machine\": {\n            \"id\": 1,\n            \"name\": \"CNC Machine 1\",\n            \"type\": \"CNC\",\n            \"status\": \"Running\"\n        },\n        \"operator\": {\n            \"id\": 1,\n            \"name\": \"Tri Wulandari\",\n            \"email\": \"triwulandari@mail.com\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRyaSBXdWxhbmRhcmkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY3Mjg5NTIsImV4cCI6MTc2NjgxNTM1Mn0.iZttDCtwTibuL9_l_ySvvsWpwJcDtyjLNI4cxixluYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/production/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"production",
+								"get-all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "jika belum ada token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/production/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"production",
+										"get-all"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-Nh7BgMCSHBmH370xGUe3w3S0C0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:39:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Mohon masukkan token.\"\n}"
+						},
+						{
+							"name": "sukses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/production/get-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"production",
+										"get-all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "282"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a-Y/jJweGXisCIjCLApFDRlNxI4o0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Dec 2025 06:39:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Berhasil mengambil data produksi\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"quantity\": 120,\n            \"shift\": \"Pagi\",\n            \"createdAt\": \"2025-12-26T06:38:25.007Z\",\n            \"machine\": {\n                \"id\": 1,\n                \"name\": \"CNC Machine 1\",\n                \"type\": \"CNC\",\n                \"status\": \"Running\"\n            },\n            \"operator\": {\n                \"id\": 1,\n                \"name\": \"Tri Wulandari\",\n                \"email\": \"triwulandari@mail.com\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
