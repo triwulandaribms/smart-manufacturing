@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const { sequelize } = require("./config/db.js");
 
 const authRoutes = require("./routes/auth.router.js");
@@ -11,6 +12,11 @@ const productionRoutes = require("./routes/production.router.js");
 const { authMiddleware } = require("./middleware/auth.js");
 
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:3001",
+  credentials: true,
+}));
 
 app.use(express.json());
 

@@ -5,7 +5,7 @@ export default function Dashboard() {
   const [summary, setSummary] = useState({});
 
   useEffect(() => {
-    api("/production/dashboard")
+    api("production/dashboard")
       .then((res) => setSummary(res.data))
       .catch((err) => console.error(err.message));
   }, []);

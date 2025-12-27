@@ -5,7 +5,7 @@ export default function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    api("/users/get-all")
+    api("users/get-all")
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err.message));
   }, []);

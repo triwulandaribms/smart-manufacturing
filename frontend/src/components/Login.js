@@ -10,16 +10,19 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await api("/auth/login", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await api(
+        "auth/login",
+        "POST",
+        { email, password }
+      );
+  
       localStorage.setItem("token", res.token);
       navigate("/dashboard");
     } catch (err) {
-      alert(err.message);
+      alert(err.message || "Login gagal");
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-screen">

@@ -5,7 +5,7 @@ export default function ProductionList() {
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    api("/production/get-all")
+    api("production/get-all")
       .then((res) => setLogs(res.data))
       .catch((err) => console.error(err.message));
   }, []);

@@ -5,7 +5,7 @@ export default function MachineList() {
   const [machines, setMachines] = useState([]);
 
   useEffect(() => {
-    api("/machines/get-all")
+    api("machines/get-all")
       .then((res) => setMachines(res.data))
       .catch((err) => console.error(err.message));
   }, []);
