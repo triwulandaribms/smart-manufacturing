@@ -1,0 +1,32 @@
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    min-width: 90px;
+    text-align: center;
+  }
+  
+  .status-badge.running {
+    background: #16a34a;
+  }
+  
+  .status-badge.idle {
+    background: #eab308;
+    color: black;
+  }
+  
+  .status-badge.maintenance {
+    background: #2563eb;
+  }
+  
+  .status-badge.error {
+    background: #dc2626;
+  }
+  
+  .status-badge.unknown {
+    background: #6b7280;
+  }
+  

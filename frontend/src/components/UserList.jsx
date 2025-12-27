@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
+import "./UserList.css";
+
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
