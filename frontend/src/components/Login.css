@@ -12,6 +12,18 @@
     background: #ffffff;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   }
+
+  .login-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  
+  .login-icon img {
+    width: 64px;
+    height: 64px;
+  }
+  
   
   .login-title {
     text-align: center;
@@ -21,7 +33,7 @@
   }
   
   .login-input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 12px;
     border-radius: 6px;
@@ -29,7 +41,9 @@
   }
   
   .login-button {
-    width: 100%;
+    width: 200px;
+    margin: 0 auto;
+    display: block;
     padding: 10px;
     background: #2563eb;
     color: white;

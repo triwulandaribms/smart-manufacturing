@@ -11,40 +11,40 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await api(
-        "auth/login",
-        "POST",
-        { email, password }
-      );
-  
+      const res = await api("auth/login", "POST", { email, password });
       localStorage.setItem("token", res.token);
       navigate("/dashboard");
     } catch (err) {
       alert(err.message || "Login gagal");
     }
   };
-  
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="card w-96">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+    <div className="login-wrapper">
+      <div className="login-card">
+        <div className="login-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="User Icon" />
+        </div>
+        <h2 className="login-title">Login</h2>
+
         <form onSubmit={handleLogin}>
           <input
-            className="input"
+            className="login-input"
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+
           <input
-            className="input"
+            className="login-input"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="button-primary w-full" type="submit">
+
+          <button className="login-button" type="submit">
             Login
           </button>
         </form>

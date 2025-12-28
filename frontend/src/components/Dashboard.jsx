@@ -3,7 +3,6 @@ import { api } from "../api/api";
 import StatusBadge from "./StatusBadge";
 import "./Dashboard.css";
 
-
 export default function Dashboard() {
   const [summary, setSummary] = useState([]);
 
@@ -14,23 +13,44 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="p-6">
-      <h2 className="text-3xl font-bold mb-6">Smart Manufacturing Dashboard</h2>
+    <section>
+      <h2 className="section-title">DASHBOARD MONITORING MESIN</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="dashboard-grid">
         {summary.map((m) => (
-          <div key={m.machineId} className="card">
-            <h3 className="text-xl font-semibold">{m.machineName}</h3>
-
-            <p>Status: <StatusBadge status={m.status} /></p>
-            <p>Temperature: {m.temperature}°C</p>
-            <p>Operator: {m.operatorName}</p>
-            <p className="font-semibold">
-              Output / Shift: {m.totalProduction}
-            </p>
+          <article key={m.machineId} className="machine-card">
+          <div className="machine-header">
+            <div className="row">
+              <span className="label">Status</span>
+              <StatusBadge status={m.status} />
+            </div>
+        
+            <div className="row">
+              <span className="label">Temperature</span>
+              <span
+                className={`temp-badge ${
+                  m.temperature >= 80 ? "hot" : "normal"
+                }`}
+              >
+                {m.temperature} °C
+              </span>
+            </div>
+        
+            <div className="row">
+              <span className="label">Operator</span>
+              <span className="value">{m.operatorName}</span>
+            </div>
+        
+            <div className="row">
+              <span className="label">Total Produksi</span>
+              <span className="output-badge">
+                {m.totalProduction}
+              </span>
+            </div>
           </div>
+        </article>        
         ))}
       </div>
-    </div>
+    </section>
   );
 }

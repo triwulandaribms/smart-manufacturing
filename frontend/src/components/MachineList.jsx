@@ -12,21 +12,52 @@ export default function MachineList() {
       .catch(console.error);
   }, []);
 
-  return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Machine Management</h2>
+  const handleAddMachine = () => {
+    alert("Tambah Machine clicked!");
+  };
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {machines.map((m) => (
-          <div key={m.id} className="card">
-            <h3 className="font-semibold">{m.name}</h3>
-            <p>Type: {m.type}</p>
-            <p>Status: <StatusBadge status={m.status} /></p>
-            <p>Temperature: {m.temperature}°C</p>
-          </div>
-        ))}
+  return (
+    <div className="machine-container">
+      <div className="machine-header">
+        <h2>DAFTAR MACHINE</h2>
+      </div>
+
+      <div className="add-user-row">
+        <button className="add-btn" onClick={handleAddMachine}>
+          + Add Machine
+        </button>
+      </div>
+
+
+      <div className="table-wrapper">
+        <table className="machine-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Temperature</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {machines.map((m, idx) => (
+              <tr key={m.id}>
+                <td>{idx + 1}</td>
+                <td>{m.name}</td>
+                <td>{m.type}</td>
+                <td>{m.temperature}°C</td>
+                <td><StatusBadge status={m.status} /></td>
+                <td>
+                  <button className="edit-btn">Edit</button>
+                  <button className="delete-btn">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 }
-
