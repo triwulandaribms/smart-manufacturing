@@ -12,16 +12,22 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await api("auth/login", "POST", { email, password });
-
+  
+      const user = {
+        id: res.user.id,
+        name: res.user.name,
+        role: res.user.role,
+      };
+  
       localStorage.setItem("token", res.token);
-      localStorage.setItem("role", res.role);
-
+      localStorage.setItem("user", JSON.stringify(user));
+  
       navigate("/monitoring");
     } catch (err) {
       alert(err.message || "Login gagal");
     }
   };
-
+  
 
   return (
     <div className="login-wrapper">

@@ -11,6 +11,34 @@
     display: flex;
     min-height: calc(100vh - 64px);
   }
+    
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  
+  .brand-text span:first-child {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .brand-text span:last-child {
+    font-size: 22px;
+    font-weight: 700;
+  }
   
   .nav-link {
     display: block;

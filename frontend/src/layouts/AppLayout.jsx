@@ -15,11 +15,23 @@ export default function AppLayout() {
   return (
     <>
       <header className="app-header">
-        <h1>Smart Manufacturing</h1>
+        <div className="brand">
+          <img
+            src="https://www.google.com/s2/favicons?sz=64&domain=smartmanufacturing.co.id"
+            alt="Smart Manufacturing"
+            className="brand-logo"
+          />
+          <div className="brand-text">
+            <span>Smart</span>
+            <span>Manufacturing</span>
+          </div>
+        </div>
+
 
         <span className="user-info">
           {user ? `${user.role}` : "Guest"}
         </span>
+
       </header>
 
       <div className="layout">
