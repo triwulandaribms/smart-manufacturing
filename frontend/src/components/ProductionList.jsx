@@ -12,29 +12,35 @@ export default function ProductionList() {
   }, []);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Production Report</h2>
+    <div className="production-container">
+      <div className="production-header">
+        <h2>PRODUCTION REPORT</h2>
+      </div>
 
-      <table className="table-auto w-full">
-        <thead>
-          <tr>
-            <th>Machine</th>
-            <th>Shift</th>
-            <th>Quantity</th>
-            <th>Operator</th>
-          </tr>
-        </thead>
-        <tbody>
-          {logs.map((l) => (
-            <tr key={l.id}>
-              <td>{l.machine.name}</td>
-              <td>{l.shift}</td>
-              <td>{l.quantity}</td>
-              <td>{l.operator.name}</td>
+      <div className="table-wrapper">
+        <table className="production-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Machine</th>
+              <th>Shift</th>
+              <th>Quantity</th>
+              <th>Operator</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {logs.map((l, idx) => (
+              <tr key={l.id}>
+                <td>{idx + 1}</td>
+                <td>{l.machine.name}</td>
+                <td>{l.shift}</td>
+                <td>{l.quantity}</td>
+                <td>{l.operator.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

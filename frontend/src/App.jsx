@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
+import Monitoring from "./components/MonitoringProduksi";
 import Login from "./components/Login";
 import MachineList from "./components/MachineList";
 import UserList from "./components/UserList";
@@ -19,7 +19,7 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/monitoring" element={<Monitoring />} />
           <Route path="/machines" element={<MachineList />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/production" element={<ProductionList />} />

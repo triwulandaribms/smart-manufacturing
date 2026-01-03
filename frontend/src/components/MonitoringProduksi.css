@@ -1,0 +1,100 @@
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e293b;
+  max-width: 500px;
+  margin: 0 auto 32px;
+  padding-left: 12px;
+  border-left: 4px solid #2563eb;
+}
+
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 36px;
+}
+
+
+.machine-card {
+  background: #ffffff;
+  padding: 24px 28px;
+  min-height: 220px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid;
+  transition: all 0.2s ease;
+}
+
+.machine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+}
+
+
+.machine-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 45px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+}
+
+.row > :last-child {
+  justify-self: start;
+}
+
+
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.temp-badge,
+.output-badge,
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.temp-badge.normal {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.temp-badge.hot {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.output-badge {
+  background-color: #eef2ff;
+  color: #3730a3;
+}
+
+
+
+
+
+
+

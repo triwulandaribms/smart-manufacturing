@@ -12,18 +12,22 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await api("auth/login", "POST", { email, password });
+
       localStorage.setItem("token", res.token);
-      navigate("/dashboard");
+      localStorage.setItem("role", res.role);
+
+      navigate("/monitoring");
     } catch (err) {
       alert(err.message || "Login gagal");
     }
   };
 
+
   return (
     <div className="login-wrapper">
       <div className="login-card">
         <div className="login-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="User Icon" />
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="User Icon" />
         </div>
         <h2 className="login-title">Login</h2>
 
