@@ -13,6 +13,30 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   }
 
+  .login-alert {
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    animation: fadeOut 3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  
   .login-icon {
     display: flex;
     justify-content: center;

@@ -1,16 +1,34 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate  } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./AppLayout.css";
 
 export default function AppLayout() {
   const [user, setUser] = useState(null);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
+
+  const handleUserMenuClick = (e) => {
+    if (user?.role !== "admin") {
+      e.preventDefault();
+      alert("Hanya admin yang bisa mengakses menu ini");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/", {
+      replace: true,
+      state: { message: "Berhasil logout" },
+    });
+  };
 
   return (
     <>
@@ -28,9 +46,17 @@ export default function AppLayout() {
         </div>
 
 
-        <span className="user-info">
-          {user ? `${user.role}` : "Guest"}
-        </span>
+        <div className="header-right">
+          <span className="user-info">
+            {user ? user.role : "Guest"}
+          </span>
+
+          {user && (
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          )}
+        </div>
 
       </header>
 
@@ -62,9 +88,11 @@ export default function AppLayout() {
             </li>
 
             <li>
-              <NavLink to="/users" className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }>
+            <NavLink
+                to="/users"
+                onClick={handleUserMenuClick}
+                className={user?.role !== "admin" ? "nav-link disabled" : "nav-link"}
+              >
                 Manajemen User
               </NavLink>
             </li>
